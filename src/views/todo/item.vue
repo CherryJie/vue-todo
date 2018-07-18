@@ -14,12 +14,12 @@ export default {
   props: {
     todo: {
       type: Object,
-      required: true,
+      required: true
     }
   },
   methods: {
-    deleteTodo() {
-      this.$emit('del', this.todo.id);
+    deleteTodo () {
+      this.$emit('del', this.todo.id)
     }
   }
 }

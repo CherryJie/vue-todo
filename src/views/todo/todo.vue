@@ -21,48 +21,48 @@
   </section>
 </template>
 <script>
-import Item from './item.vue';
-import Tabs from './tabs.vue';
-let id = 0;
+import Item from './item.vue'
+import Tabs from './tabs.vue'
+let id = 0
 export default {
-  data() {
+  data () {
     return {
       todos: [],
-      filter: 'all',
+      filter: 'all'
     }
   },
   components: {
     Item,
-    Tabs,
+    Tabs
   },
   computed: {
-    filteredTodos() {
+    filteredTodos () {
       if (this.filter === 'all') {
         return this.todos
       }
-      const completed = this.filter === 'completed';
+      const completed = this.filter === 'completed'
       return this.todos.filter(todo => completed === todo.completed)
-    },
+    }
   },
   methods: {
-    addTodo(e) {
+    addTodo (e) {
       this.todos.unshift({
         id: id++,
         // 取到目标值
         content: e.target.value.trim(),
-        completed: false,
-      });
-      e.target.value = "";
+        completed: false
+      })
+      e.target.value = ''
     },
-    deleteTodo(id) {
-      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1);
+    deleteTodo (id) {
+      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggleFilter(state) {
-      this.filter = state;
+    toggleFilter (state) {
+      this.filter = state
     },
-    clearAllCompleted() {
+    clearAllCompleted () {
       // 要给 this.todos 重新赋值，不然 id 会越过被删掉的而改变
-      this.todos = this.todos.filter(todo => !todo.completed);
+      this.todos = this.todos.filter(todo => !todo.completed)
     }
   }
 }

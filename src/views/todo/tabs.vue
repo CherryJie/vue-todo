@@ -19,30 +19,30 @@ export default {
   props: {
     filter: {
       type: String,
-      required: true,
+      required: true
     },
     todos: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
-  data() {
+  data () {
     return {
-      states: ['all', 'active', 'completed'],
+      states: ['all', 'active', 'completed']
     }
   },
   computed: {
-    unFinishedTodoLength() {
-      return this.todos.filter(todo => !todo.completed).length;
-    },
+    unFinishedTodoLength () {
+      return this.todos.filter(todo => !todo.completed).length
+    }
   },
   methods: {
-    clearAllCompleted() {
-      this.$emit('clearAll');
+    clearAllCompleted () {
+      this.$emit('clearAll')
     },
-    toggleFilter(state) {
-      this.$emit('toggle', state);
-    },
+    toggleFilter (state) {
+      this.$emit('toggle', state)
+    }
   }
 }
 </script>
